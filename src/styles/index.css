@@ -1,0 +1,426 @@
+/* CSS variables for the colors */
+:root {
+  --red-primary: #690d0d;
+  --black-primary: #111010;
+  --black-secondary: #19191d;
+  --grey-primary: #888;
+  --grey-secondary: #555;
+  --green-primary: #008000;
+  --green-secondary: #4caf50;
+  --white: #ffffff;
+  --white-opacity: rgba(255, 255, 255, 0.1);
+  --black: #000000;
+}
+
+/* #region Custom scrollbar for WebKit browserss */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grey-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grey-secondary);
+}
+
+/* Custom scrollbar for Firefox */
+.middle-section,
+.right-section {
+  scrollbar-width: thin;
+  scrollbar-color: var(--grey-primary) var(--black-primary);
+}
+
+/* #endregion */
+
+/* #region global styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--black-primary);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  color: var(--grey-primary);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 1em 0 0.5em 0;
+}
+
+.flex {
+  display: flex;
+  gap: 10px;
+}
+
+.wrapper {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spaced-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.round-corners {
+  border-radius: 10px;
+}
+
+.pd10 {
+  padding: 10px;
+}
+
+.pd20 {
+  padding: 20px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+/* #endregion */
+
+/* #region header */
+
+header {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+header h4 {
+  margin: 0;
+  padding: 5px;
+}
+
+/* #endregion */
+
+/* #region main section */
+
+.container {
+  gap: 10px;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.left-section,
+.middle-section,
+.right-section {
+  height: 100%;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* #region left section */
+.left-section {
+  width: 20%;
+  gap: 15px;
+}
+
+.left-section .home,
+.left-section .library {
+  background-color: var(--white-opacity);
+  color: var(--grey-primary);
+}
+
+.home .home-content {
+  gap: 10px;
+}
+
+.library .inner {
+  flex-direction: column;
+}
+
+.library .inner .cards {
+  gap: 10px;
+}
+
+.library .inner .cards .card {
+  overflow: hidden;
+  border: 1px solid var(--grey-secondary);
+  gap: 2px;
+}
+
+.library .inner .cards .card .img-box {
+  overflow: hidden;
+  width: 40%;
+}
+
+.library .inner .cards .card .img-box img {
+  object-fit: cover;
+}
+
+.library .inner .cards .card .text-box h5 {
+  font-size: 15px;
+  color: var(--white);
+}
+
+.text-box p {
+  font-size: 12px;
+}
+
+/* #endregion */
+
+/* #region middle-section */
+
+.middle-section {
+  background: linear-gradient(
+    to bottom,
+    var(--red-primary),
+    var(--black-secondary)
+  );
+  border-radius: 10px;
+  padding-bottom: 5em;
+  flex: 2;
+  width: 70%;
+  overflow-y: auto;
+}
+
+.section-title {
+  color: var(--white);
+  margin-left: 5%;
+  margin-bottom: 1em;
+}
+
+.init {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.init .fa-solid {
+  color: var(--white);
+  opacity: 0.5;
+  margin: 0 5px;
+}
+
+/* #region middle section __ song card styling */
+
+.wrap-card {
+  margin-bottom: 5em;
+}
+
+.card-song-row {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.card-song {
+  display: flex;
+  width: 29.5%;
+  align-items: center;
+  background-color: var(--white-opacity);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+
+.card-song img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.card-song span {
+  color: var(--white);
+  flex-grow: 1;
+  padding: 16px;
+}
+
+.card-song .play-button {
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-song:hover .play-button {
+  opacity: 1;
+}
+
+.fa-circle-play {
+  color: var(--green-primary);
+}
+/* #endregion */
+
+/* #region middle section __ playlist card styling */
+
+.card-playlist {
+  display: flex;
+  gap: 1em;
+  padding-inline: 5%;
+  margin-bottom: 5em;
+}
+
+.card-inner {
+  background: var(--white-opacity);
+  padding: 0.8em;
+  border-radius: 6px;
+  position: relative;
+}
+
+.card-inner .play-button {
+  position: absolute;
+  left: 80%;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-inner:hover .play-button {
+  opacity: 1;
+}
+
+.card-inner .media img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.card-inner .card-content {
+  color: var(--white);
+}
+
+.card-inner .card-content span {
+  color: var(--grey-primary);
+}
+
+/* #endregion */
+
+/* #endregion */
+
+/* #region right section */
+.right-section {
+  width: 20%;
+  gap: 15px;
+  background-color: var(--white-opacity);
+  overflow-y: auto;
+}
+
+.right-section h3 {
+  color: var(--white);
+}
+
+.right-section .cards-content {
+  gap: 10px;
+}
+
+.cards-content .card {
+  background-color: var(--black-primary);
+  overflow: hidden;
+}
+
+.cards-content .card .img-box {
+  position: relative;
+}
+
+.cards-content .card .about {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--white);
+}
+
+.cards-content .card .content-box {
+  padding: 20px;
+}
+
+/* #endregion */
+
+/* #endregion */
+
+/* #region footer */
+footer {
+  background-color: var(--black);
+  color: var(--grey-secondary);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .play-container {
+  padding: 20px;
+}
+
+footer .play-container i:not(:last-child) {
+  margin-right: 15px;
+}
+
+footer .progress-bar {
+  width: 40%;
+  height: 6px;
+  background-color: var(--grey-secondary);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+footer .progress-bar .progress {
+  width: 40%;
+  height: 100%;
+  background-color: var(--green-secondary);
+}
+
+/* #endregion */
