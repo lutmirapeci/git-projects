@@ -1,0 +1,201 @@
+/* #region global styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.968);
+  padding-bottom: 50px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pd10 {
+  padding: 10px;
+}
+
+.pd20 {
+  padding: 20px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+/* #endregion */
+
+/* #region header */
+
+header {
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+header .fa-solid {
+  display: none;
+}
+
+header .navigation {
+  list-style: none;
+}
+
+header .navigation li {
+  margin-right: 50px;
+}
+
+/* #endregion */
+
+/* #region about section */
+#about-us {
+  width: 70%;
+  height: calc(120vh - 80px);
+  margin: 80px auto 0;
+  background: url(../images/background.jpg) center/cover no-repeat;
+  overflow: auto;
+}
+
+#about-us .container {
+  background: rgba(0, 0, 0, 0.424);
+}
+
+.container .text {
+  text-align: center;
+}
+
+.container .gallery .img-container {
+  width: 30%;
+}
+
+.img-container .img-box {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.img-container span {
+  display: flex;
+  justify-content: center;
+}
+
+.gallery .card {
+  width: 22%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.card .img-box {
+  padding-top: 75%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.card img {
+  position: absolute;
+  object-fit: cover;
+}
+
+.card button {
+  border-radius: 5px;
+  border: none;
+}
+
+.card button:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+/* #endregion */
+
+/* #region footer */
+
+footer {
+  bottom: 0;
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* #endregion */
+
+/* #region media query for phone screen sizes */
+
+@media only screen and (max-width: 426px) and (min-width: 321px) {
+  body {
+    font-size: 14px;
+  }
+
+  header .fa-solid {
+    display: block;
+  }
+
+  header .navigation {
+    display: none;
+  }
+
+  .container .gallery {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .container .gallery .img-container {
+    width: 100%;
+  }
+
+  .container .gallery .card {
+    width: 100%;
+  }
+}
+
+/* #endregion */
